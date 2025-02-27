@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>filmDB</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+</head>
+<body>
+  <!-- Header with logo, search bar, nav, and hamburger -->
+  <header>
+    <div class="container">
+      <div class="logo">
+        <h1>
+          <span onclick="window.location.reload()" style="cursor:pointer;">
+            🎞️filmDB
+          </span>
+        </h1>
+      </div>
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="discover new movies...."
+        />
+        <button id="search-button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#" data-page="home" class="active">home</a></li>
+          <li><a href="#" data-page="favorites">favorites</a></li>
+          <li><a href="#" data-page="profile">profile</a></li>
+        </ul>
+      </nav>
+      <div class="hamburger">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content: Home, Favorites, Profile sections -->
+  <main>
+    <div class="container">
+      <!-- Home Page (default active) -->
+      <section id="home-page" class="page active">
+        <h2>popular movies</h2>
+        <div class="movies-grid" id="movies-container"></div>
+        <div class="loading" id="loading">
+          <div class="spinner"></div>
+        </div>
+      </section>
+
+      <!-- Favorites Page -->
+      <section id="favorites-page" class="page">
+        <h2>your favorite movies</h2>
+        <div class="movies-grid" id="favorites-container"></div>
+        <div id="no-favorites" class="no-content">
+          <i class="fas fa-heart-broken"></i>
+          <p>you haven't added any favorites yet. 🥺</p>
+        </div>
+      </section>
+
+      <!-- Profile Page -->
+      <section id="profile-page" class="page">
+        <div class="profile-container">
+          <div class="profile-header">
+            <div class="profile-avatar"> 
+              <i class="fas fa-user"></i>
+            </div>
+            <h2>user profile</h2>
+          </div>
+          <div class="profile-stats">
+            <!-- Only favorites are shown, 'viewed' removed -->
+            <div class="stat-item">
+              <i class="fas fa-heart"></i>
+              <span id="favorites-count">0</span>
+              <p>favorites</p>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button id="clear-favorites" class="btn-danger">
+              <i class="fas fa-trash"></i>
+              clear favorites
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Modal for movie details -->
+  <div id="movie-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a href="#">about</a>
+        <a href="#">privacy policy</a>
+        <a href="#">contact</a>
+      </div>
+      <p class="copyright">
+        © 2025 filmDB | designed with 🩷 by dolunay çimen
+      </p>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript file -->
+  <script src="js/script.js"></script>
+</body>
+</html>
